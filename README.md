@@ -4,11 +4,25 @@ Python implementation of Ding J-J, Tu M-Y, Hua S-C. Fast Algorithms for Multi-Wi
 
 ## Requirements
 
-- numpy
-- opencv-python
+- numpy==1.26.4
 
 ## Usage
 
+```python
+from fastDCP import fastDCP
+dcps = fastDCP(image, layer)
+```
+
+## Dehazing Results
+
+### Requirements
+
+- opencv-python==4.9.0.80
+- opencv-contrib-python==4.9.0.80
+
+### Usage
+
 ```bash
-python example.py
+cd dcp-dehaze
+python main.py
 ```
