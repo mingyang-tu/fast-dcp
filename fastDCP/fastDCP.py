@@ -24,12 +24,12 @@ def fastDCP(image, layer):
     offset = 1
     for i in range(layer - 1):
         dcp = np.minimum(
-            np.concatenate([dcp[[0] * offset, :], dcp[:-offset, :]], axis=0),
-            np.concatenate([dcp[offset:, :], dcp[[-1] * offset, :]], axis=0),
+            np.vstack((dcp[[0] * offset, :], dcp[:-offset, :])),
+            np.vstack((dcp[offset:, :], dcp[[-1] * offset, :])),
         )
         dcp = np.minimum(
-            np.concatenate([dcp[:, [0] * offset], dcp[:, :-offset]], axis=1),
-            np.concatenate([dcp[:, offset:], dcp[:, [-1] * offset]], axis=1),
+            np.hstack((dcp[:, [0] * offset], dcp[:, :-offset])),
+            np.hstack((dcp[:, offset:], dcp[:, [-1] * offset])),
         )
         dcps[:, :, i + 1] = dcp
         offset *= 2
